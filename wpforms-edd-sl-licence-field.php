@@ -174,4 +174,3 @@ class WPForms_EDD_SL_Licence_Field extends WPForms_Field_Text {
 		return ;
 	}
 }
-new WPForms_Field_Text;
