@@ -1,6 +1,6 @@
 # WPForms / EDD Software Licensing licence field
 
-Provides a "licence" input field which can be added to any WPForms form.
+Provides a software licence input field which can be added to any WPForms form.
 
 The field allows customers to enter a licence when they fill in the form. When the form is submitted, the plugin will check the licence against EDD Software Licensing's records, and include additional information in the notifications for that field. The plugin currently includes:
 
