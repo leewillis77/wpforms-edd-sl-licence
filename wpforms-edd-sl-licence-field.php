@@ -127,10 +127,15 @@ class WPForms_EDD_SL_Licence_Field extends WPForms_Field_Text {
 		// Flesh out the return object.
 		$data = array(
 			'name'      => sanitize_text_field( $field['label'] ),
-			'value'     => sanitize_text_field( $value_raw ),
+			'value'     => '',
 			'value_raw' => $value_raw,
 			'id'        => absint( $field_id ),
 			'type'      => $this->type,
+		);
+		// Set a default value to pass through on failure.
+		$data['value'] = sprintf(
+			__( 'Unrecognized: %s', 'wp-forms-edd-sl-licence' ),
+			sanitize_text_field( $value_raw )
 		);
 
 		// Check we have a licence key to check. If not - return as-is.
@@ -171,6 +176,5 @@ class WPForms_EDD_SL_Licence_Field extends WPForms_Field_Text {
 		);
 		$data['value'] = $status_string;
 		wpforms()->process->fields[ $field_id ] = $data;
-		return ;
 	}
 }
