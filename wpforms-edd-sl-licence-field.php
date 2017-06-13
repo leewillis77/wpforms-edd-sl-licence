@@ -7,7 +7,7 @@ class WPForms_EDD_SL_Licence_Field extends WPForms_Field_Text {
 	public function init() {
 		// Define field type information.
 		parent::init();
-		$this->name  = __( 'Software licence', 'weslf' );
+		$this->name  = __( 'Software licence', 'wpforms-edd-sl-licence' );
 		$this->type  = 'wpforms-edd-sl-licence-field';
 		$this->icon  = 'fa-text-width';
 		$this->order = 99;
@@ -150,11 +150,11 @@ class WPForms_EDD_SL_Licence_Field extends WPForms_Field_Text {
 		$sites_registered = unserialize( $licence_meta['_edd_sl_sites'][0] );
 		$expiry           = gmdate( 'd F Y', $licence_meta['_edd_sl_expiration'][0] );
 		if ( $licence_meta['_edd_sl_expiration'][0] < time() ) {
-			$expired_or_expires = 'expired';
+			$expired_or_expires = __( 'expired', 'wpforms-edd-sl-licence' );
 		} else {
-			$expired_or_expires = 'expires';
+			$expired_or_expires = __( 'expires', 'wpforms-edd-sl-licence' );
 		}
-		$status_string = "%s\n %s, %s %s\n%d sites registered:\n%s";
+		$status_string = __( "%1\$s\n %2\$s, %3\$s %4\$s\n%5\$d sites registered:\n%6\$s", 'wpforms-edd-sl-licence' );
 		$status_string = sprintf(
 			$status_string,
 			$value_raw,

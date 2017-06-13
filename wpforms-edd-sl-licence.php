@@ -36,3 +36,9 @@ add_action( 'init', function() {
 	require_once( dirname( __FILE__ ) . '/wpforms-edd-sl-licence-field.php' );
 	new WPForms_EDD_SL_Licence_Field();
 }, 99);
+
+add_action( 'init', function() {
+	$locale = apply_filters( 'plugin_locale', get_locale(), 'wpforms-edd-sl-licence' );
+	load_textdomain( 'wpforms-edd-sl-licence', WP_LANG_DIR . '/wpforms-edd-sl-licence/wpforms-edd-sl-licence-' . $locale . '.mo' );
+	load_plugin_textdomain( 'wpforms-edd-sl-licence', false, basename( dirname( __FILE__ ) ) . '/languages/' );
+});
