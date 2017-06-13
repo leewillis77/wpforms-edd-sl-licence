@@ -5,7 +5,7 @@ Plugin URI: http://www.ademti-software.co.uk
 Description: Provides a "licence" input field which allows customers to enter a
              licence. If this matches a licence in EDD Software Licensing then
 			 additional information will be provided in the email.
-Version: 0.1
+Version: 1.0.0
 Author: Ademti Software Ltd.
 Author URI: http://www.ademti-software.co.uk
 */
