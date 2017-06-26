@@ -152,7 +152,7 @@ class WPForms_EDD_SL_Licence_Field extends WPForms_Field_Text {
 		}
 		$licence_meta     = get_post_custom( $licence_id );
 		$licence_status   = ucfirst( strtolower( $licence_meta['_edd_sl_status'][0] ) );
-		$sites_registered = unserialize( $licence_meta['_edd_sl_sites'][0] );
+		$sites_registered = isset( $licence_meta['_edd_sl_sites'][0] ) ? unserialize( $licence_meta['_edd_sl_sites'][0] ) : [];
 		$expiry           = gmdate( 'd F Y', $licence_meta['_edd_sl_expiration'][0] );
 		if ( $licence_meta['_edd_sl_expiration'][0] < time() ) {
 			$expired_or_expires = __( 'expired', 'wpforms-edd-sl-licence' );
