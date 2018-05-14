@@ -150,11 +150,11 @@ class WPForms_EDD_SL_Licence_Field extends WPForms_Field_Text {
 			wpforms()->process->fields[ $field_id ] = $data;
 			return;
 		}
-		$licence_meta     = get_post_custom( $licence_id );
-		$licence_status   = ucfirst( strtolower( $licence_meta['_edd_sl_status'][0] ) );
-		$sites_registered = isset( $licence_meta['_edd_sl_sites'][0] ) ? unserialize( $licence_meta['_edd_sl_sites'][0] ) : [];
-		$expiry           = gmdate( 'd F Y', $licence_meta['_edd_sl_expiration'][0] );
-		if ( $licence_meta['_edd_sl_expiration'][0] < time() ) {
+		$licence          = new EDD_SL_License( $licence_id );
+		$licence_status   = ucfirst( strtolower( $licence->status ) );
+		$sites_registered = ! empty( $licence->sites ) ? $licence->sites : [];
+		$expiry           = gmdate( 'd F Y', $licence->expiration );
+		if ( $licence->expiration < time() ) {
 			$expired_or_expires = __( 'expired', 'wpforms-edd-sl-licence' );
 		} else {
 			$expired_or_expires = __( 'expires', 'wpforms-edd-sl-licence' );
